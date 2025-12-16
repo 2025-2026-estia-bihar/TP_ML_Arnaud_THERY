@@ -50,3 +50,12 @@ traitlets==5.14.3
 tzdata==2025.3
 urllib3==2.6.2
 wcwidth==0.2.14
+
+# Deep Learning (DL I - Classification d'images) - PyTorch
+torch>=2.1.0
+torchvision>=0.16.0
+torchaudio>=2.1.0
+torchsummary>=1.5.1
+lime>=0.2.0.1
+opencv-python>=4.8.0
+Pillow>=10.0.0
