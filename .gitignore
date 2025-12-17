@@ -17,8 +17,11 @@ ENV/
 /data/
 /model/registry/
 /model/output/
+/model/vit_3_best/
+/model/vit_4_best/
 /model/*.pth
 /model/*.h5
+/model/*.safetensors
 /monitoring/output/
 
 # Logs
