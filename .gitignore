@@ -17,6 +17,8 @@ ENV/
 /data/
 /model/registry/
 /model/output/
+/model/*.pth
+/model/*.h5
 /monitoring/output/
 
 # Logs
