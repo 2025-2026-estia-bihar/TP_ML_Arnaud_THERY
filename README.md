@@ -51,7 +51,6 @@ TP_ML/
 │   └── corn_classification.ipynb     # ✅ DL I - Classification images
 ├── data/
 │   ├── corn_images/                  # Dataset images maïs
-│   └── weather.db                    # Base SQLite (séries temporelles)
 ├── model/
 │   └── registry/                     # Modèles entraînés sérialisés
 ├── monitoring/
