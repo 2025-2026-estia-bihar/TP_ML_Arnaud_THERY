@@ -10,7 +10,6 @@ Ce repository contient **trois sous-projets indépendants** de Machine Learning/
 | --------------------------- | ------ | ------------------------------------------------------- | ----------- |
 | **🌡️ Time Series**          | ML II  | Prédiction de température (ARIMA/SARIMA/RF)             | ✅ Complété |
 | **🌽 Image Classification** | DL I   | Classification d'images de maïs (CNN/Transfer Learning) | ✅ Complété |
-| **🎬 Text Classification**  | DL II  | Sentiment analysis de critiques (NLP/LSTM)              | ⏳ À venir  |
 
 ## 🏗️ Architecture & Flux de Données
 
@@ -28,14 +27,6 @@ Open-Meteo API → Agrégation 3h → Feature Engineering → [ARIMA/SARIMA/RF] 
 Kaggle Dataset → Prétraitement (224×224) → Augmentation → [CNN/VGG16/ResNet] → Classification
                                                                   ↓
                                                             LIME (Explicabilité)
-```
-
-### Text Classification (DL II)
-
-```
-HuggingFace → Tokenisation → [TF-IDF/Word2Vec/LSTM] → Sentiment (Pos/Neg)
-                                        ↓
-                                  Analyse d'erreurs
 ```
 
 ## 🛠️ Technologies Utilisées
@@ -57,8 +48,7 @@ HuggingFace → Tokenisation → [TF-IDF/Word2Vec/LSTM] → Sentiment (Pos/Neg)
 TP_ML/
 ├── notebooks/
 │   ├── bihar_time_series.ipynb       # ✅ ML II - Prédiction température
-│   ├── corn_classification.ipynb     # 🔄 DL I - Classification images
-│   └── sentiment_analysis.ipynb      # ⏳ DL II - Analyse de sentiment
+│   └── corn_classification.ipynb     # ✅ DL I - Classification images
 ├── data/
 │   ├── corn_images/                  # Dataset images maïs
 │   └── weather.db                    # Base SQLite (séries temporelles)
@@ -155,42 +145,19 @@ Puis ouvrir le notebook souhaité dans `notebooks/`.
    - Classifier: Dense(256) → ReLU → Dropout(0.5) → Dense(3)
    - Accuracy: **70.67%** (test set)
    - Par classe: Chao 99% | Milho 75% | Ervas 38%
-6. Transfer Learning: VGG16, ResNet50, Vision Transformer (implémentés)
+6. Transfer Learning: VGG16, ResNet50 (implémentés)
 7. Phase 2: Extension 4 classes (ajout Milho_ervas/corn+weeds)
 8. Explicabilité: LIME (superpixels)
 
 **Résultats 3 Classes:**
 
-| Modèle                | Accuracy | Chao | Milho | Ervas | Notes                      |
-| --------------------- | -------- | ---- | ----- | ----- | -------------------------- |
-| Baseline CNN          | 70.67%   | 99%  | 75%   | 38%   | ✅ PyTorch, 5 epochs       |
-| VGG16 (à exécuter)    | TBD      | TBD  | TBD   | TBD   | Transfer learning freezé   |
-| ResNet50 (à exécuter) | TBD      | TBD  | TBD   | TBD   | Architecture plus profonde |
-| ViT (à exécuter)      | TBD      | TBD  | TBD   | TBD   | Vision Transformer         |
+| Modèle       | Accuracy | Chao | Milho | Ervas | Notes                    |
+| ------------ | -------- | ---- | ----- | ----- | ------------------------ |
+| Baseline CNN | 70.67%   | 99%  | 75%   | 38%   | ✅ PyTorch, 5 epochs     |
+| VGG16        | 89.00%   | TBD  | TBD   | TBD   | ✅ Transfer learning     |
+| ResNet50     | 97.67%   | TBD  | TBD   | TBD   | ✅ Architecture profonde |
 
 **Notebook:** `notebooks/corn_classification.ipynb`
-
----
-
-### 🎬 Text Classification (DL II)
-
-**Objectif:** Classifier critiques de films (positif/négatif).
-
-**Données:** Allocine French Reviews (HuggingFace)
-
-- 200K critiques (100K pos + 100K neg)
-- Split: Train (160K) / Val (20K) / Test (20K)
-
-**Méthodologie:**
-
-1. Prétraitement NLP: nettoyage, tokenisation, stopwords
-2. Baseline: Bag-of-Words + TF-IDF (Logistic Regression, SVM)
-3. Word embeddings: Word2Vec (Jean-Philippe Fauconnier)
-4. Deep Learning: LSTM, Bidirectional LSTM
-5. Évaluation: Confusion matrix, precision/recall/F1
-6. Analyse d'erreurs: patterns dans misclassifications
-
-**Notebook:** `notebooks/sentiment_analysis.ipynb` (à venir)
 
 ## 📝 Livrables Conformes au TP
 
@@ -225,11 +192,13 @@ Puis ouvrir le notebook souhaité dans `notebooks/`.
 
 ### Image Classification (DL I)
 
-_Expérimentation en cours - résultats détaillés à venir_
+| Modèle       | Accuracy 3C | Accuracy 4C | Notes                               |
+| ------------ | ----------- | ----------- | ----------------------------------- |
+| Baseline CNN | 70.67%      | 68.75%      | ✅ CNN custom, early stopping       |
+| VGG16        | 89.00%      | TBD         | ✅ Transfer learning, fine-tuning   |
+| ResNet50     | 97.67%      | 87.00%      | ✅ Architecture résiduelle profonde |
 
-### Text Classification (DL II)
-
-_À venir_
+**Recommandation:** ResNet50 pour 4 classes (meilleure accuracy et généralisation)
 
 ## 🧪 Tests & Quality Assurance
 
@@ -251,8 +220,8 @@ _À venir_
 ## 👤 Auteur
 
 **Arnaud THERY**  
-Parcours BIHAR-CORSE 2024-2025  
-Organisation: [2024-2025-estia-bihar](https://github.com/2024-2025-estia-bihar)
+Parcours BIHAR-CORSE 2025-2026  
+Organisation: [2025-2026-estia-bihar](https://github.com/2025-2026-estia-bihar)
 
 ## 📜 Licence
 
