@@ -21,6 +21,7 @@ ENV/
 /model/vit_4_best/
 /model/*.pth
 /model/*.h5
+/model/*.pt
 /model/*.safetensors
 /monitoring/output/
 
